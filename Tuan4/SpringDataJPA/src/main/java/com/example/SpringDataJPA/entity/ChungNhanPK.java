@@ -1,17 +1,17 @@
 package com.example.SpringDataJPA.entity;
 
-import javax.persistence.Embeddable;
+import java.io.Serializable;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
+import javax.persistence.Embeddable;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 import lombok.NoArgsConstructor;
 
-@Embeddable
-@EqualsAndHashCode
-@AllArgsConstructor
 @NoArgsConstructor
-public class ChungNhanPK {
-    private String maNV;
-    private int maMB;
-
+@Embeddable
+public class ChungNhanPK implements Serializable {
+	private String nhanVien;
+	private int mayBay;
 }
