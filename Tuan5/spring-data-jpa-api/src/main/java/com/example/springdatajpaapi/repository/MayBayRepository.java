@@ -15,6 +15,6 @@ import com.example.springdatajpaapi.entity.MayBay;
 @Transactional
 public interface MayBayRepository extends JpaRepository<MayBay, Integer>{
 	// 2
-	@Query(value="select * from maybay where tam_bay > ?1", nativeQuery = true)
-	List<MayBay> findAllLoaiByTamBay(int tamBay);
+	@Query(value="select loai from maybay where tam_bay > ?1", nativeQuery = true)
+	List<String> findAllLoaiByTamBay(int tamBay);
 }

@@ -24,7 +24,7 @@ public class MayBayServiceImpl implements MayBayService{
 	}
 
 	@Override
-	public List<MayBay> findAllLoaiByTamBay(int tamBay) {
+	public List<String> findAllLoaiByTamBay(int tamBay) {
 		// TODO Auto-generated method stub
 		return mayBayRepository.findAllLoaiByTamBay(tamBay);
 	}

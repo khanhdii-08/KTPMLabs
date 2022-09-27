@@ -37,6 +37,7 @@ public class ChuyenBayRestApi {
 		return chuyenBayService.findCBByDD(from, to);
 	}
 
+	//Cau 5
 	@GetMapping("/chuyen-bay/di-den")
 	public List<ChuyenBay> findCBByFromTo(@RequestParam(value = "from", required = true) String from,
 										  @RequestParam(value = "to", required = true) String to){

@@ -26,7 +26,7 @@ public class MayBayRestApi {
 
 	//Cau 2
 	@GetMapping("/may-bay/loai")
-	public List<MayBay> findAllLoaiByTamBay(@RequestParam(value = "tam-bay", required = true) int tamBay){
+	public List<String> findAllLoaiByTamBay(@RequestParam(value = "tam-bay", required = true) int tamBay){
 		return mayBayService.findAllLoaiByTamBay(tamBay);
 	}
 }
