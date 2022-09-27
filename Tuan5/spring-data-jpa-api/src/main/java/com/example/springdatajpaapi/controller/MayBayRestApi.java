@@ -2,6 +2,7 @@ package com.example.springdatajpaapi.controller;
 
 import java.util.List;
 
+import com.example.springdatajpaapi.repository.MayBayRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +23,8 @@ public class MayBayRestApi {
 	public List<MayBay> findAll(){
 		return mayBayService.findAll();
 	}
-	
+
+	//Cau 2
 	@GetMapping("/may-bay/loai")
 	public List<MayBay> findAllLoaiByTamBay(@RequestParam(value = "tam-bay", required = true) int tamBay){
 		return mayBayService.findAllLoaiByTamBay(tamBay);

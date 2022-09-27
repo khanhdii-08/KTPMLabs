@@ -23,12 +23,31 @@ public class ChuyenBayRestApi {
 	public List<ChuyenBay> findAll(){
 		return chuyenBayService.findAll();
 	}
-	
-	
+
 	//Cau 1
 	@GetMapping("/chuyen-bay/ga-den")
 	public List<ChuyenBay> findAllByGaDen(@RequestParam(value="name", required=true) String name){
 		return chuyenBayService.findAllByGaDen(name);
 	}
+
+	//Cau 4
+	@GetMapping("/chuyen-bay/do-dai")
+	public List<ChuyenBay> findCBByDD(@RequestParam(value = "from", required = true) int from,
+									  @RequestParam(value = "to", required = true) int to){
+		return chuyenBayService.findCBByDD(from, to);
+	}
+
+	@GetMapping("/chuyen-bay/di-den")
+	public List<ChuyenBay> findCBByFromTo(@RequestParam(value = "from", required = true) String from,
+										  @RequestParam(value = "to", required = true) String to){
+		return chuyenBayService.findCBByFromTo(from, to);
+	}
+
+	//Cau 6
+	@GetMapping("/chuyen-bay/ga-di")
+	public int findCBByFrom(@RequestParam(value = "from", required = true) String form){
+		return  chuyenBayService.findCBByFrom(form);
+	}
+
 
 }

@@ -36,9 +36,14 @@ public class ChuyenBayServiceImpl implements ChuyenBayService{
 	}
 
 	@Override
-	public List<ChuyenBay> findCBByFrom(String from) {
+	public int findCBByFrom(String from) {
 		// TODO Auto-generated method stub
 		return chuyenBayRepository.findCBByFrom(from);
+	}
+
+	@Override
+	public List<ChuyenBay> findCBByDD(int from, int to) {
+		return chuyenBayRepository.findCBByDD(from, to);
 	}
 
 }

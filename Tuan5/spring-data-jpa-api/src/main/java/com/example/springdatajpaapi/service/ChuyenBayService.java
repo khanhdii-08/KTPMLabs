@@ -13,7 +13,9 @@ public interface ChuyenBayService {
 	
 	List<ChuyenBay> findCBByFromTo(String from, String to);
 
-	List<ChuyenBay> findCBByFrom(String from);
+	int findCBByFrom(String from);
+
+	List<ChuyenBay> findCBByDD(int from, int to);
 
 	List<ChuyenBay> findAll();
 }

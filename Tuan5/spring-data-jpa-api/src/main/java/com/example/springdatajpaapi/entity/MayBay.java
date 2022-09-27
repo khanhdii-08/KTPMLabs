@@ -18,6 +18,6 @@ public class MayBay {
 	private String loai;
 	private int tamBay;
 	
-	@OneToMany(mappedBy = "mayBay")
-	private List<ChungNhan> lsChungNhan;
+//	@OneToMany(mappedBy = "mayBay")
+//	private List<ChungNhan> lsChungNhan;
 }

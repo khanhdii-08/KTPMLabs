@@ -20,14 +20,14 @@ public interface ChuyenBayRepository extends JpaRepository<ChuyenBay, String>{
 	List<ChuyenBay> findAllByGaDen(String gaDen);
 	
 	//4
-//	@Query(nativeQuery = true, value = "select * from chuyenbay where ga_di = ?1 and ga_den = ?2")
-//	List<ChuyenBay> findCBDB(int from, int to);
+	@Query(nativeQuery = true, value = "select * from chuyenbay where do_dai > ?1 and do_dai < ?2")
+	List<ChuyenBay> findCBByDD(int from, int to);
 	
 	//5
 	@Query(nativeQuery = true, value = "select * from chuyenbay where ga_di = ?1 and ga_den = ?2")
 	List<ChuyenBay> findCBByFromTo(String from, String to);
 	
 	//6
-	@Query(nativeQuery = true, value = "select * from chuyenbay where ga_di = ?1 ")
-	List<ChuyenBay> findCBByFrom(String from);
+	@Query(nativeQuery = true, value = "select count(*) from chuyenbay where ga_di = ?1 ")
+	int findCBByFrom(String from);
 }
