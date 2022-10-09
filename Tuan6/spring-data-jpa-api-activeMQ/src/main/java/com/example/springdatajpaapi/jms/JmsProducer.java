@@ -1,6 +1,7 @@
 package com.example.springdatajpaapi.jms;
 
 import com.example.springdatajpaapi.entity.MayBay;
+import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,9 +19,10 @@ public class JmsProducer {
     private String topic;
 
     public void sendMessage(MayBay message){
+        Gson gson = new Gson();
         try{
             log.info("Attempting Send message to Topic: "+ topic);
-            jmsTemplate.convertAndSend(topic, message);
+            jmsTemplate.convertAndSend(topic, gson.toJson(message));
         } catch(Exception e){
             log.error("Recieved Exception during send Message: ", e);
         }

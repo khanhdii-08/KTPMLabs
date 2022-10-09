@@ -1,7 +1,7 @@
-package com.example.springdatajpaapi.jms;
+package com.example.springactivemqreciever.jms;
 
-import com.example.springdatajpaapi.entity.MayBay;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.activemq.command.ActiveMQTextMessage;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
@@ -17,10 +17,14 @@ public class JmsConsumer implements MessageListener {
     @JmsListener(destination = "${spring.active-mq.topic}")
     public void onMessage(Message message) {
         try{
-            ObjectMessage objectMessage = (ObjectMessage)message;
-            MayBay mayBay = (MayBay) objectMessage.getObject();
-            //do additional processing
-            log.info("Received Message from Topic: "+ mayBay.toString());
+            if (message instanceof ActiveMQTextMessage) {
+                ActiveMQTextMessage msg =(ActiveMQTextMessage) message;
+                log.info("Received Message from Topic: "+ msg.getText());
+            }
+            else {
+
+                ObjectMessage objectMessage = (ObjectMessage)message;
+            }
         } catch(Exception e) {
             log.error("Received Exception while processing message: "+ e);
         }
